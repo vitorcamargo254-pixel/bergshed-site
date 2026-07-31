@@ -211,6 +211,45 @@ const products = [
     badge: 'Novo',
     image: 'images/produtos/p11.webp',
     category: 'shorts'
+  },
+  {
+    id: 17,
+    brand: 'Ralph Lauren',
+    name: 'Cable Knit Crewneck Off-White',
+    price: 'R$ 750',
+    priceNum: 750,
+    sizes: ['P', 'M', 'G'],
+    condition: 'Novo com tags',
+    description: 'Suéter Ralph Lauren em tricô trançado (cable knit), cor off-white/creme. Logo Polo pony bordado no peito. Tags originais. Gola careca clássica. Peça atemporal do estilo preppy.',
+    badge: 'Novo',
+    image: 'images/produtos/p17.webp',
+    category: 'moletom'
+  },
+  {
+    id: 18,
+    brand: 'Vilebrequin',
+    name: 'Swim Short Preto',
+    price: 'R$ 950',
+    priceNum: 950,
+    sizes: ['M', 'G', 'GG'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Short de banho Vilebrequin preto, modelo clássico com costuras contrastantes em branco. Cordão de amarrar. Label Vilebrequin na perna. Marca francesa de beachwear de luxo.',
+    badge: null,
+    image: 'images/produtos/p18.webp',
+    category: 'shorts'
+  },
+  {
+    id: 19,
+    brand: 'Ralph Lauren',
+    name: 'Cable Knit Crewneck Navy',
+    price: 'R$ 750',
+    priceNum: 750,
+    sizes: ['P', 'M', 'G'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Suéter Ralph Lauren em tricô trançado (cable knit), cor navy. Logo Polo pony bordado em vermelho no peito. Gola careca clássica. Peça atemporal do estilo preppy.',
+    badge: null,
+    image: 'images/produtos/p19.webp',
+    category: 'moletom'
   }
 ];
 
