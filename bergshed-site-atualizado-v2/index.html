@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BERGSHED — Luxury Streetwear</title>
+  <meta name="description" content="Bergshed — Revenda autenticada de peças de grife. Ralph Lauren, Moncler, Zegna, Vilebrequin, CDG e mais.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Filter Buttons */
+    .filters {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gray);
+      padding: 8px 20px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-body);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      background: var(--black-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stat-item { padding: 20px; }
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 400;
+      background: var(--gold-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gray);
+      text-transform: uppercase;
+    }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Brand cards icon text */
+    .brand-icon-letter {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--gold-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════
+     ANNOUNCEMENT BAR
+     ═══════════════════════════════════════════ -->
+<div class="announcement-bar">
+  ✦ Frete grátis acima de R$800 &nbsp;·&nbsp; Peças 100% autenticadas &nbsp;·&nbsp; Pagamento via PIX, cartão e boleto ✦
+</div>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════ -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">BERGSHED</a>
+
+  <ul class="nav-menu">
+    <li><a href="#marcas" class="nav-link">Marcas</a></li>
+    <li><a href="#produtos" class="nav-link">Produtos</a></li>
+    <li><a href="#vender" class="nav-link">Vender peças</a></li>
+    <li><a href="#contato" class="nav-link">Contato</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <!-- Search -->
+    <button class="nav-icon-btn" aria-label="Buscar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+    </button>
+
+    <!-- Cart -->
+    <button class="nav-icon-btn" aria-label="Carrinho" onclick="openCart()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-count">0</span>
+    </button>
+
+    <!-- Hamburger (mobile) -->
+    <button class="hamburger" aria-label="Menu" onclick="openMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     MOBILE MENU
+     ═══════════════════════════════════════════ -->
+<div class="mobile-menu">
+  <button class="mobile-menu-close" onclick="closeMobileMenu()">×</button>
+  <a href="#marcas"   class="mobile-nav-link" onclick="closeMobileMenu()">Marcas</a>
+  <a href="#produtos" class="mobile-nav-link" onclick="closeMobileMenu()">Produtos</a>
+  <a href="#vender"   class="mobile-nav-link" onclick="closeMobileMenu()">Vender peças</a>
+  <a href="#contato"  class="mobile-nav-link" onclick="closeMobileMenu()">Contato</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- Troque o src abaixo por uma foto do seu acervo -->
+  <!-- <div class="hero-image" style="background-image:url('images/hero.jpg')"></div> -->
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Curated Luxury Resale</p>
+    <h1 class="hero-title">BERGSHED</h1>
+    <p class="hero-subtitle">Peças de grife autenticadas.<br>Preços que fazem sentido.</p>
+    <div class="hero-actions">
+      <a href="#produtos" class="btn btn-gold">Ver coleção</a>
+      <a href="#vender"   class="btn btn-outline">Vender minha peça</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     MARQUEE TICKER
+     ═══════════════════════════════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- Duplicado para loop infinito -->
+    <div class="marquee-item">
+      <span>Ralph Lauren</span><span class="marquee-dot"></span>
+      <span>Moncler</span><span class="marquee-dot"></span>
+      <span>Zegna</span><span class="marquee-dot"></span>
+      <span>Vilebrequin</span><span class="marquee-dot"></span>
+      <span>Comme des Garçons</span><span class="marquee-dot"></span>
+      <span>Birkenstock</span><span class="marquee-dot"></span>
+      <span>Sundek</span><span class="marquee-dot"></span>
+      <span>AllSaints</span><span class="marquee-dot"></span>
+    </div>
+    <div class="marquee-item" aria-hidden="true">
+      <span>Ralph Lauren</span><span class="marquee-dot"></span>
+      <span>Moncler</span><span class="marquee-dot"></span>
+      <span>Zegna</span><span class="marquee-dot"></span>
+      <span>Vilebrequin</span><span class="marquee-dot"></span>
+      <span>Comme des Garçons</span><span class="marquee-dot"></span>
+      <span>Birkenstock</span><span class="marquee-dot"></span>
+      <span>Sundek</span><span class="marquee-dot"></span>
+      <span>AllSaints</span><span class="marquee-dot"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     STATS BAR
+     ═══════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item fade-in">
+      <div class="stat-number">500+</div>
+      <div class="stat-label">Pedidos enviados</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-number">8</div>
+      <div class="stat-label">Marcas premium</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Autenticadas</div>
+    </div>
+    <div class="stat-item fade-in">
+      <div class="stat-number">5★</div>
+      <div class="stat-label">Avaliação</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     BRANDS SECTION
+     ═══════════════════════════════════════════ -->
+<section class="section brands-section" id="marcas">
+  <div class="container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Portfólio</p>
+      <h2 class="section-title">Nossas Marcas</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="brands-grid">
+      <div class="brand-card fade-in" onclick="setFilter(document.querySelector('.filter-btn'), 'polo')">
+        <div class="brand-icon-letter">RL</div>
+        <div class="brand-name">Ralph Lauren</div>
+      </div>
+      <div class="brand-card fade-in" onclick="document.querySelector('#produtos').scrollIntoView({behavior:'smooth'})">
+        <div class="brand-icon-letter">MC</div>
+        <div class="brand-name">Moncler</div>
+      </div>
+      <div class="brand-card fade-in" onclick="document.querySelector('#produtos').scrollIntoView({behavior:'smooth'})">
+        <div class="brand-icon-letter">ZG</div>
+        <div class="brand-name">Zegna</div>
+      </div>
+      <div class="brand-card fade-in" onclick="document.querySelector('#produtos').scrollIntoView({behavior:'smooth'})">
+        <div class="brand-icon-letter">VB</div>
+        <div class="brand-name">Vilebrequin</div>
+      </div>
+      <div class="brand-card fade-in" onclick="document.querySelector('#produtos').scrollIntoView({behavior:'smooth'})">
+        <div class="brand-icon-letter">CDG</div>
+        <div class="brand-name">Comme des Garçons</div>
+      </div>
+      <div class="brand-card fade-in" onclick="document.querySelector('#produtos').scrollIntoView({behavior:'smooth'})">
+        <div class="brand-icon-letter">BK</div>
+        <div class="brand-name">Birkenstock</div>
+      </div>
+      <div class="brand-card fade-in" onclick="document.querySelector('#produtos').scrollIntoView({behavior:'smooth'})">
+        <div class="brand-icon-letter">SD</div>
+        <div class="brand-name">Sundek</div>
+      </div>
+      <div class="brand-card fade-in" onclick="document.querySelector('#produtos').scrollIntoView({behavior:'smooth'})">
+        <div class="brand-icon-letter">AS</div>
+        <div class="brand-name">AllSaints</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PRODUCTS SECTION
+     ═══════════════════════════════════════════ -->
+<section class="section" id="produtos" style="background:var(--black);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Disponível agora</p>
+      <h2 class="section-title">Coleção</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-btn active" onclick="setFilter(this,'all')">Todos</button>
+      <button class="filter-btn" onclick="setFilter(this,'moletom')">Moletom</button>
+      <button class="filter-btn" onclick="setFilter(this,'camiseta')">Camisetas</button>
+      <button class="filter-btn" onclick="setFilter(this,'shorts')">Shorts</button>
+      <button class="filter-btn" onclick="setFilter(this,'camisa')">Camisas</button>
+    </div>
+
+    <!-- Products Grid (rendered via JS) -->
+    <div class="products-grid" id="products-grid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SELL SECTION
+     ═══════════════════════════════════════════ -->
+<section class="section-sm sell-section" id="vender">
+  <div class="sell-inner">
+    <div class="sell-content">
+      <p class="section-eyebrow fade-in">Tem peças paradas?</p>
+      <h2 class="sell-title fade-in">
+        Compramos suas<br><span>peças de grife</span>
+      </h2>
+      <p class="sell-text fade-in">
+        Avaliamos e compramos peças das principais marcas de luxo.
+        Processo rápido, pagamento imediato via PIX. Fale com a gente pelo WhatsApp.
+      </p>
+
+      <div class="sell-brands fade-in">
+        <span class="sell-brand-tag">Ralph Lauren</span>
+        <span class="sell-brand-tag">Moncler</span>
+        <span class="sell-brand-tag">Zegna</span>
+        <span class="sell-brand-tag">Vilebrequin</span>
+        <span class="sell-brand-tag">CDG</span>
+        <span class="sell-brand-tag">Birkenstock</span>
+        <span class="sell-brand-tag">Sundek</span>
+        <span class="sell-brand-tag">AllSaints</span>
+        <span class="sell-brand-tag">+ outras</span>
+      </div>
+
+      <a href="https://wa.me/5511999999999?text=Olá!%20Quero%20vender%20uma%20peça%20de%20grife."
+         target="_blank" class="btn btn-gold fade-in" style="align-self:flex-start">
+        Quero vender minha peça
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="sell-image">
+      <!-- Troque por uma foto do seu estoque ou de bastidores -->
+      <!-- <img src="images/backstage.jpg" alt="Bergshed Backstage"> -->
+      <div class="sell-image-placeholder">BS</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     INSTAGRAM SECTION
+     ═══════════════════════════════════════════ -->
+<section class="section" id="contato" style="background:var(--black-soft);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <p class="section-eyebrow">Siga no Instagram</p>
+      <h2 class="section-title">@bergshed</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="instagram-grid">
+      <!-- Adicione fotos reais aqui. Por ora: placeholders -->
+      <div class="instagram-item fade-in">
+        <div class="instagram-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+      </div>
+      <div class="instagram-item fade-in">
+        <div class="instagram-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+      </div>
+      <div class="instagram-item fade-in">
+        <div class="instagram-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+      </div>
+      <div class="instagram-item fade-in">
+        <div class="instagram-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+      </div>
+      <div class="instagram-item fade-in">
+        <div class="instagram-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+      </div>
+      <div class="instagram-item fade-in">
+        <div class="instagram-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://instagram.com/bergshed" target="_blank" class="btn btn-outline">
+        Ver @bergshed no Instagram
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">BERGSHED</div>
+        <p class="footer-about">
+          Revenda autenticada de peças de grife premium. Cada item é cuidadosamente verificado antes de chegar até você.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-heading">Loja</div>
+        <ul class="footer-links">
+          <li><a href="#marcas"   class="footer-link">Marcas</a></li>
+          <li><a href="#produtos" class="footer-link">Produtos</a></li>
+          <li><a href="#vender"   class="footer-link">Vender peças</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-heading">Informações</div>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-link">Autenticidade</a></li>
+          <li><a href="#" class="footer-link">Frete & Envio</a></li>
+          <li><a href="#" class="footer-link">Trocas & Devoluções</a></li>
+          <li><a href="#" class="footer-link">Política de privacidade</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-heading">Contato</div>
+        <ul class="footer-links">
+          <li>
+            <a href="https://wa.me/5511999999999" target="_blank" class="footer-link">
+              WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com/bergshed" target="_blank" class="footer-link">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="mailto:contato@bergshed.com" class="footer-link">
+              E-mail
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Bergshed. Todos os direitos reservados.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/bergshed" target="_blank">Instagram</a>
+        <a href="https://wa.me/5511999999999"    target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     CART DRAWER
+     ═══════════════════════════════════════════ -->
+<div class="cart-overlay"></div>
+<aside class="cart-drawer">
+  <div class="cart-header">
+    <h3 class="cart-title">Seu Carrinho</h3>
+    <button class="cart-close" onclick="closeCart()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="cart-body"></div>
+
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span class="cart-subtotal-value">R$ 0,00</span>
+    </div>
+    <p class="cart-note">Frete calculado no checkout</p>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-bottom:12px" onclick="goToCheckout()">
+      Finalizar pedido
+    </button>
+    <button class="btn btn-dark" onclick="closeCart()">Continuar comprando</button>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════
+     PRODUCT MODAL
+     ═══════════════════════════════════════════ -->
+<div class="modal-overlay">
+  <div class="modal">
+    <div class="modal-image" id="modal-image-content"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-brand" id="modal-brand"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-condition" id="modal-condition"></p>
+      <div class="modal-price" id="modal-price"></div>
+
+      <div class="modal-size-label">Tamanho disponível</div>
+      <div class="modal-size-grid" id="modal-sizes"></div>
+
+      <p class="modal-desc" id="modal-desc"></p>
+
+      <div class="modal-actions">
+        <button class="btn btn-gold" id="modal-add-btn">
+          Adicionar ao carrinho
+        </button>
+        <button class="btn btn-outline" id="modal-whatsapp-btn">
+          Comprar via WhatsApp
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.041L.789 23.5l4.566-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.09 0-4.042-.637-5.664-1.726l-.406-.241-3.863 1.244 1.267-3.754-.263-.421A9.957 9.957 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     WHATSAPP FLOAT
+     ═══════════════════════════════════════════ -->
+<a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.28 7.041L.789 23.5l4.566-1.469A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.09 0-4.042-.637-5.664-1.726l-.406-.241-3.863 1.244 1.267-3.754-.263-.421A9.957 9.957 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<!-- ═══════════════════════════════════════════
+     TOAST
+     ═══════════════════════════════════════════ -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✦</span>
+  <span id="toast-msg"></span>
+</div>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
