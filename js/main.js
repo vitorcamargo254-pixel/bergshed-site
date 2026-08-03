@@ -80,6 +80,7 @@ const products = [
     description: 'Short de banho Sundek clássico em areia/bege. Listras coloridas neon verde e azul nas laterais. Logo bordado. Tags originais. Marca italiana de beachwear de luxo.',
     badge: 'Novo',
     image: 'images/produtos/p12.webp',
+    images: ['images/produtos/p12.webp', 'images/produtos/p11.webp'],
     category: 'shorts'
   },
   {
@@ -187,19 +188,6 @@ const products = [
     category: 'moletom'
   },
   {
-    id: 16,
-    brand: 'Sundek',
-    name: 'Classic Swim Short Bege Listras',
-    price: 'R$ 350',
-    priceNum: 350,
-    sizes: ['M'],
-    condition: 'Novo com tags',
-    description: 'Short de banho Sundek em bege com listras neon verde e azul teal nas laterais. Patch do logo bordado. Corte reto clássico. Marca italiana de beachwear de luxo.',
-    badge: 'Novo',
-    image: 'images/produtos/p11.webp',
-    category: 'shorts'
-  },
-  {
     id: 17,
     brand: 'Ralph Lauren',
     name: 'Cable Knit Crewneck Off-White',
@@ -211,19 +199,6 @@ const products = [
     badge: 'Novo',
     image: 'images/produtos/p17.webp',
     category: 'moletom'
-  },
-  {
-    id: 18,
-    brand: 'Vilebrequin',
-    name: 'Swim Short Preto',
-    price: 'R$ 370',
-    priceNum: 370,
-    sizes: ['M'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'Short de banho Vilebrequin preto, modelo clássico com costuras contrastantes em branco. Cordão de amarrar. Label Vilebrequin na perna. Marca francesa de beachwear de luxo.',
-    badge: null,
-    image: 'images/produtos/p18.webp',
-    category: 'shorts'
   },
   {
     id: 19,
@@ -398,15 +373,32 @@ function openModal(productId) {
   document.getElementById('modal-desc').textContent     = product.description;
 
   const imageEl = document.getElementById('modal-image-content');
-  imageEl.innerHTML = product.image
-    ? `<img src="${product.image}" alt="${product.name}">`
-    : `<div class="modal-image-placeholder">
+  const gallery = product.images && product.images.length ? product.images : (product.image ? [product.image] : []);
+
+  if (gallery.length > 1) {
+    imageEl.innerHTML = `
+      <div class="modal-carousel" id="modal-carousel">
+        <div class="modal-carousel-track" id="modal-carousel-track">
+          ${gallery.map(src => `<img src="${src}" alt="${product.name}">`).join('')}
+        </div>
+        <button class="modal-carousel-arrow prev" onclick="event.stopPropagation();carouselMove(-1)">‹</button>
+        <button class="modal-carousel-arrow next" onclick="event.stopPropagation();carouselMove(1)">›</button>
+        <div class="modal-carousel-dots">
+          ${gallery.map((_, i) => `<button class="modal-carousel-dot${i === 0 ? ' active' : ''}" onclick="event.stopPropagation();carouselGoTo(${i})"></button>`).join('')}
+        </div>
+      </div>`;
+    initCarousel(gallery.length);
+  } else if (gallery.length === 1) {
+    imageEl.innerHTML = `<img src="${gallery[0]}" alt="${product.name}">`;
+  } else {
+    imageEl.innerHTML = `<div class="modal-image-placeholder">
          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5">
            <rect x="3" y="3" width="18" height="18" rx="2"/>
            <circle cx="8.5" cy="8.5" r="1.5"/>
            <polyline points="21 15 16 10 5 21"/>
          </svg>
        </div>`;
+  }
 
   const sizesEl = document.getElementById('modal-sizes');
   sizesEl.innerHTML = product.sizes.map(s => `
@@ -420,11 +412,77 @@ function openModal(productId) {
 
   document.getElementById('modal-whatsapp-btn').onclick = () => {
     const msg = encodeURIComponent(`Olá! Tenho interesse na peça:\n*${product.brand} — ${product.name}*\nTamanho: ${selectedSize || 'a definir'}\nPreço: ${product.price}`);
-    window.open(`https://wa.me/5511999999999?text=${msg}`, '_blank');
+    window.open(`https://wa.me/5527920024287?text=${msg}`, '_blank');
   };
 
   document.querySelector('.modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+// ─── MODAL IMAGE CAROUSEL ────────────────────────────────────────
+let carouselIndex = 0;
+let carouselCount = 1;
+
+function initCarousel(count) {
+  carouselIndex = 0;
+  carouselCount = count;
+
+  const track = document.getElementById('modal-carousel-track');
+  if (!track) return;
+
+  let startX = 0;
+  let currentX = 0;
+  let dragging = false;
+
+  const getPos = (e) => (e.touches ? e.touches[0].clientX : e.clientX);
+
+  const onStart = (e) => {
+    dragging = true;
+    startX = getPos(e);
+    currentX = startX;
+    track.classList.add('dragging');
+  };
+
+  const onMove = (e) => {
+    if (!dragging) return;
+    currentX = getPos(e);
+    const delta = currentX - startX;
+    const percent = (-carouselIndex * 100) + (delta / track.clientWidth * 100);
+    track.style.transform = `translateX(${percent}%)`;
+  };
+
+  const onEnd = () => {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove('dragging');
+    const delta = currentX - startX;
+    if (Math.abs(delta) > 50) {
+      carouselMove(delta < 0 ? 1 : -1);
+    } else {
+      carouselGoTo(carouselIndex);
+    }
+  };
+
+  track.addEventListener('mousedown', onStart);
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onEnd);
+  track.addEventListener('touchstart', onStart, { passive: true });
+  track.addEventListener('touchmove', onMove, { passive: true });
+  track.addEventListener('touchend', onEnd);
+}
+
+function carouselGoTo(index) {
+  const track = document.getElementById('modal-carousel-track');
+  if (!track) return;
+  carouselIndex = Math.max(0, Math.min(index, carouselCount - 1));
+  track.style.transform = `translateX(-${carouselIndex * 100}%)`;
+  document.querySelectorAll('.modal-carousel-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === carouselIndex);
+  });
+}
+
+function carouselMove(direction) {
+  carouselGoTo(carouselIndex + direction);
 }
 
 function closeModal() {
@@ -527,7 +585,7 @@ function goToCheckout() {
   showToast('Redirecionando para o pagamento...');
   // window.open(MERCADO_PAGO_URL, '_blank');
   const msg = encodeURIComponent(`Olá! Gostaria de finalizar meu pedido:\n\n${cart.map(i => `• ${i.brand} — ${i.name} (${i.size}) — ${i.price}`).join('\n')}\n\n*Total: ${formatPrice(getCartTotal())}*`);
-  window.open(`https://wa.me/5511999999999?text=${msg}`, '_blank');
+  window.open(`https://wa.me/5527920024287?text=${msg}`, '_blank');
 }
 
 // ─── SMOOTH SCROLL ───────────────────────────────────────────────
