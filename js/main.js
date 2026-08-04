@@ -236,7 +236,7 @@ const products = [
     condition: 'Seminovo — Excelente estado',
     description: 'Short de banho Vilebrequin em azul com estampa exclusiva de lagosta e abacaxi. Tecido microfiber leve. Marca francesa de beachwear de luxo. Peça colecionável.',
     badge: null,
-    image: 'images/produtos/p18.png',
+    image: 'images/produtos/p19b.png',
     category: 'shorts'
   },
   {
@@ -249,7 +249,7 @@ const products = [
     condition: 'Seminovo — Excelente estado',
     description: 'Short de banho Vilebrequin navy liso. Corte clássico Moorea, tecido microfiber premium. Label Vilebrequin original. Elegância minimalista da marca francesa.',
     badge: null,
-    images: ['images/produtos/p19.png', 'images/produtos/p19b.png'],
+    images: ['images/produtos/p20b.png', 'images/produtos/p20.png'],
     category: 'shorts'
   },
   {
@@ -262,7 +262,7 @@ const products = [
     condition: 'Seminovo — Excelente estado',
     description: 'Moletom crewneck Off-White™ preto. Patch de artwork no peito e estampa Caravaggio com setas icônicas nas costas. Algodão pesado. Peça de alto valor de revenda.',
     badge: 'Premium',
-    images: ['images/produtos/p20.png', 'images/produtos/p20b.png'],
+    images: ['images/produtos/p19.png', 'images/produtos/p18.png'],
     category: 'moletom'
   }
 ];
