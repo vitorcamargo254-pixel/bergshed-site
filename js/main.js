@@ -132,7 +132,7 @@ const products = [
     condition: 'Seminovo — Ótimo estado',
     description: 'Short de banho Sundek clássico preto. Costuras em branco. Cordão interno. Logo Sundek aplicado. Modelo clean e versátil da marca italiana de beachwear.',
     badge: null,
-    image: 'images/produtos/p06.webp',
+    image: 'images/produtos/p06b.png',
     category: 'shorts'
   },
   {
