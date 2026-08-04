@@ -212,6 +212,58 @@ const products = [
     badge: null,
     image: 'images/produtos/p19.webp',
     category: 'moletom'
+  },
+  {
+    id: 20,
+    brand: 'Ralph Lauren',
+    name: 'Polo Bear T-Shirt Off-White',
+    price: 'R$ 350',
+    priceNum: 350,
+    sizes: ['L'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'T-shirt Ralph Lauren Polo Bear off-white. Estampa do urso com blazer de cricket. Algodão premium macio. Logo Polo Ralph Lauren original autenticado.',
+    badge: null,
+    image: 'images/produtos/p17.png',
+    category: 'camiseta'
+  },
+  {
+    id: 21,
+    brand: 'Vilebrequin',
+    name: 'Moorea Lagosta & Abacaxi',
+    price: 'R$ 700',
+    priceNum: 700,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Short de banho Vilebrequin em azul com estampa exclusiva de lagosta e abacaxi. Tecido microfiber leve. Marca francesa de beachwear de luxo. Peça colecionável.',
+    badge: null,
+    image: 'images/produtos/p18.png',
+    category: 'shorts'
+  },
+  {
+    id: 22,
+    brand: 'Vilebrequin',
+    name: 'Moorea Classic Navy Liso',
+    price: 'R$ 700',
+    priceNum: 700,
+    sizes: ['XL'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Short de banho Vilebrequin navy liso. Corte clássico Moorea, tecido microfiber premium. Label Vilebrequin original. Elegância minimalista da marca francesa.',
+    badge: null,
+    images: ['images/produtos/p19.png', 'images/produtos/p19b.png'],
+    category: 'shorts'
+  },
+  {
+    id: 23,
+    brand: 'Off-White™',
+    name: 'Crewneck Caravaggio Arrows',
+    price: 'R$ 800',
+    priceNum: 800,
+    sizes: ['P'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Moletom crewneck Off-White™ preto. Patch de artwork no peito e estampa Caravaggio com setas icônicas nas costas. Algodão pesado. Peça de alto valor de revenda.',
+    badge: 'Premium',
+    images: ['images/produtos/p20.png', 'images/produtos/p20b.png'],
+    category: 'moletom'
   }
 ];
 
@@ -306,6 +358,13 @@ function renderCartItems() {
   document.querySelector('.cart-subtotal-value').textContent = formatPrice(getCartTotal());
 }
 
+// ─── IMAGE HELPER ────────────────────────────────────────────────
+function getImages(product) {
+  if (product.images && product.images.length) return product.images;
+  if (product.image) return [product.image];
+  return [];
+}
+
 // ─── RENDER PRODUCTS ─────────────────────────────────────────────
 function renderProducts(filter = 'all') {
   const grid = document.getElementById('products-grid');
@@ -313,11 +372,15 @@ function renderProducts(filter = 'all') {
 
   const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
 
-  grid.innerHTML = filtered.map(p => `
+  grid.innerHTML = filtered.map(p => {
+    const imgs = getImages(p);
+    const thumb = imgs[0] || null;
+    const hasMultiple = imgs.length > 1;
+    return `
     <div class="product-card fade-in" onclick="openModal(${p.id})">
       <div class="product-image-wrap">
-        ${p.image
-          ? `<img src="${p.image}" alt="${p.name}">`
+        ${thumb
+          ? `<img src="${thumb}" alt="${p.name}">`
           : `<div class="product-image-placeholder">
                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5">
                  <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -327,6 +390,7 @@ function renderProducts(filter = 'all') {
              </div>`
         }
         ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+        ${hasMultiple ? `<span class="product-multi-badge">+foto</span>` : ''}
         <div class="product-overlay">
           <button class="btn btn-gold" style="font-size:10px;padding:10px 20px;width:100%" onclick="event.stopPropagation();openModal(${p.id})">
             Ver detalhes
@@ -346,8 +410,8 @@ function renderProducts(filter = 'all') {
           </button>
         </div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 
   // Trigger animations
   setTimeout(() => {
@@ -373,7 +437,7 @@ function openModal(productId) {
   document.getElementById('modal-desc').textContent     = product.description;
 
   const imageEl = document.getElementById('modal-image-content');
-  const gallery = product.images && product.images.length ? product.images : (product.image ? [product.image] : []);
+  const gallery = getImages(product);
 
   if (gallery.length > 1) {
     imageEl.innerHTML = `
