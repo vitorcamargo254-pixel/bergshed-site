@@ -264,6 +264,45 @@ const products = [
     badge: 'Premium',
     images: ['images/produtos/p19.png', 'images/produtos/p18.png'],
     category: 'moletom'
+  },
+  {
+    id: 24,
+    brand: 'Birkenstock',
+    name: 'Arizona Bege/Pérola',
+    price: 'R$ 700',
+    priceNum: 700,
+    sizes: ['40'],
+    condition: 'Seminovo — Bom estado',
+    description: 'Birkenstock Arizona em couro pérola. Duas tiras ajustáveis com fivela metálica. Palmilha anatômica de cortiça e látex. Clássico atemporal.',
+    badge: null,
+    images: ['images/produtos/p21.png', 'images/produtos/p21b.png'],
+    category: 'sandalia'
+  },
+  {
+    id: 25,
+    brand: 'Birkenstock',
+    name: 'Arizona EVA Rosa',
+    price: 'R$ 400',
+    priceNum: 400,
+    sizes: ['38'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Birkenstock Arizona EVA na cor rosa. Material leve e impermeável, ideal para praia e piscina. Duas tiras ajustáveis.',
+    badge: null,
+    image: 'images/produtos/p22.png',
+    category: 'sandalia'
+  },
+  {
+    id: 26,
+    brand: 'Birkenstock',
+    name: 'Madrid Prata',
+    price: 'R$ 400',
+    priceNum: 400,
+    sizes: ['40'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Birkenstock Madrid em couro prata metalizado. Tira única com fivela. Palmilha anatômica de cortiça. Modelo clássico e versátil.',
+    badge: null,
+    image: 'images/produtos/p23.png',
+    category: 'sandalia'
   }
 ];
 
