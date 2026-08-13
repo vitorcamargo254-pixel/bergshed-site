@@ -294,34 +294,6 @@ const products = [
     image: 'images/produtos/p25.png',
     category: 'camiseta'
   },
-  // ── Sundek ───────────────────────────────────────────────────────
-  {
-    id: 6,
-    brand: 'Sundek',
-    name: 'Classic Swim Short Bege',
-    price: 'R$ 350',
-    priceNum: 350,
-    sizes: ['M'],
-    condition: 'Novo com tags',
-    description: 'Short de banho Sundek clássico em areia/bege. Listras coloridas neon verde e azul nas laterais. Logo bordado. Tags originais. Marca italiana de beachwear de luxo.',
-    badge: 'Novo',
-    image: 'images/produtos/p12.webp',
-    images: ['images/produtos/p12.webp', 'images/produtos/p11.webp'],
-    category: 'shorts'
-  },
-  {
-    id: 11,
-    brand: 'Sundek',
-    name: 'Classic Swim Short Preto',
-    price: 'R$ 350',
-    priceNum: 350,
-    sizes: ['M'],
-    condition: 'Seminovo — Ótimo estado',
-    description: 'Short de banho Sundek clássico preto. Costuras em branco. Cordão interno. Logo Sundek aplicado. Modelo clean e versátil da marca italiana de beachwear.',
-    badge: 'Vendido',
-    image: 'images/produtos/p06b.png',
-    category: 'shorts'
-  },
   // ── Birkenstock ──────────────────────────────────────────────────
   {
     id: 24,
