@@ -303,6 +303,58 @@ const products = [
     badge: null,
     image: 'images/produtos/p23.png',
     category: 'sandalia'
+  },
+  {
+    id: 27,
+    brand: 'AllSaints',
+    name: 'Graphic Drip Branca',
+    price: 'R$ 600',
+    priceNum: 600,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Camiseta AllSaints branca com gráfico exclusivo Drip — logo derretido no peito e estampa grande nas costas. Algodão premium. Peça com identidade forte.',
+    badge: null,
+    images: ['images/produtos/p24.png', 'images/produtos/p24b.png'],
+    category: 'camiseta'
+  },
+  {
+    id: 28,
+    brand: 'AllSaints',
+    name: 'Brace Logo Bege',
+    price: 'R$ 500',
+    priceNum: 500,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Camiseta AllSaints em bege terroso com logo tonal no peito. Algodão de alta gramatura. Corte relaxado. Versátil e sofisticada.',
+    badge: null,
+    image: 'images/produtos/p25.png',
+    category: 'camiseta'
+  },
+  {
+    id: 29,
+    brand: 'AllSaints',
+    name: 'Underground Tokyo London',
+    price: 'R$ 600',
+    priceNum: 600,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Camiseta AllSaints off-white da coleção Underground. Texto japonês e "LONDON" nas costas. Corte oversized. Minimalista com referência urbana.',
+    badge: null,
+    images: ['images/produtos/p26.png', 'images/produtos/p26b.png'],
+    category: 'camiseta'
+  },
+  {
+    id: 30,
+    brand: 'Vilebrequin',
+    name: 'Moorea Starfish Navy',
+    price: 'R$ 700',
+    priceNum: 700,
+    sizes: ['XL'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Short de banho Vilebrequin Moorea azul marinho com estampa de estrelas do mar em verde menta. Marca francesa de beachwear de luxo. Icônico.',
+    badge: null,
+    image: 'images/produtos/p27.png',
+    category: 'shorts'
   }
 ];
 
