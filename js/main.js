@@ -4,6 +4,73 @@
 
 // ─── PRODUCTS DATA ──────────────────────────────────────────────
 const products = [
+  // ── Off-White™ ──────────────────────────────────────────────────
+  {
+    id: 23,
+    brand: 'Off-White™',
+    name: 'Crewneck Caravaggio Arrows',
+    price: 'R$ 1.300',
+    priceNum: 1300,
+    sizes: ['P'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Moletom crewneck Off-White™ preto. Patch de artwork no peito e estampa Caravaggio com setas icônicas nas costas. Algodão pesado. Peça de alto valor de revenda.',
+    badge: 'Premium',
+    images: ['images/produtos/p19.png', 'images/produtos/p18.png'],
+    category: 'moletom'
+  },
+  // ── Ralph Lauren ─────────────────────────────────────────────────
+  {
+    id: 12,
+    brand: 'Ralph Lauren',
+    name: 'Polo Flag Sweater Navy',
+    price: 'R$ 1.350',
+    priceNum: 1350,
+    sizes: ['G'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Suéter Ralph Lauren com patch da bandeira americana em alto relevo. Letras "RL" bordadas. Tecido canelado de malha grossa. Peça icônica do estilo preppy americano.',
+    badge: null,
+    image: 'images/produtos/p02.webp',
+    category: 'moletom'
+  },
+  {
+    id: 17,
+    brand: 'Ralph Lauren',
+    name: 'Cable Knit Crewneck Off-White',
+    price: 'R$ 1.100',
+    priceNum: 1100,
+    sizes: ['M'],
+    condition: 'Novo com tags',
+    description: 'Suéter Ralph Lauren em tricô trançado (cable knit), cor off-white/creme. Logo Polo pony bordado no peito. Tags originais. Gola careca clássica. Peça atemporal do estilo preppy.',
+    badge: 'Novo',
+    image: 'images/produtos/p17.webp',
+    category: 'moletom'
+  },
+  {
+    id: 13,
+    brand: 'Ralph Lauren',
+    name: 'Polo Bear Crewneck Navy Denim',
+    price: 'R$ 1.000',
+    priceNum: 1000,
+    sizes: ['G'],
+    condition: 'Como novo — Perfeito estado',
+    description: 'Moletom crewneck Ralph Lauren Polo Bear navy. Estampa do urso com jaqueta jeans. Tecido pesado premium. Peça colecionável da linha Polo Bear by Ralph Lauren.',
+    badge: null,
+    image: 'images/produtos/p05.webp',
+    category: 'moletom'
+  },
+  {
+    id: 19,
+    brand: 'Ralph Lauren',
+    name: 'Cable Knit Crewneck Navy',
+    price: 'R$ 900',
+    priceNum: 900,
+    sizes: ['P'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Suéter Ralph Lauren em tricô trançado (cable knit), cor navy. Logo Polo pony bordado em vermelho no peito. Gola careca clássica. Peça atemporal do estilo preppy.',
+    badge: null,
+    image: 'images/produtos/p19.webp',
+    category: 'moletom'
+  },
   {
     id: 1,
     brand: 'Ralph Lauren',
@@ -15,6 +82,19 @@ const products = [
     description: 'Moletom crewneck Ralph Lauren Polo Bear, cor off-white. Estampa icônica do urso com jaqueta verde. 100% algodão. Peça autenticada pela Bergshed.',
     badge: null,
     image: 'images/produtos/p01.webp',
+    category: 'moletom'
+  },
+  {
+    id: 14,
+    brand: 'Ralph Lauren',
+    name: 'Polo Bear Crewneck Navy Horse',
+    price: 'R$ 800',
+    priceNum: 800,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Moletom crewneck Ralph Lauren Polo Bear navy. Estampa do urso jogador de polo a cavalo. Gráfico colorido exclusivo de coleção. Autenticado pela Bergshed.',
+    badge: null,
+    image: 'images/produtos/p04.webp',
     category: 'moletom'
   },
   {
@@ -44,19 +124,6 @@ const products = [
     category: 'moletom'
   },
   {
-    id: 4,
-    brand: 'AllSaints',
-    name: 'Tokyo Underground Tee',
-    price: 'R$ 500',
-    priceNum: 500,
-    sizes: ['M'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'T-shirt AllSaints Tokyo Underground, preta. Logo frontal discreto e estampa "ALLSAINTS トウキョウ LONDON" nas costas. 100% algodão premium. Clássico da marca britânica.',
-    badge: null,
-    image: 'images/produtos/p14.webp',
-    category: 'camiseta'
-  },
-  {
     id: 5,
     brand: 'Ralph Lauren',
     name: 'Hoodie Classic Dark Navy',
@@ -70,20 +137,6 @@ const products = [
     category: 'moletom'
   },
   {
-    id: 6,
-    brand: 'Sundek',
-    name: 'Classic Swim Short Bege',
-    price: 'R$ 350',
-    priceNum: 350,
-    sizes: ['M'],
-    condition: 'Novo com tags',
-    description: 'Short de banho Sundek clássico em areia/bege. Listras coloridas neon verde e azul nas laterais. Logo bordado. Tags originais. Marca italiana de beachwear de luxo.',
-    badge: 'Novo',
-    image: 'images/produtos/p12.webp',
-    images: ['images/produtos/p12.webp', 'images/produtos/p11.webp'],
-    category: 'shorts'
-  },
-  {
     id: 7,
     brand: 'Ralph Lauren',
     name: 'Half-Zip Cotton Sweater',
@@ -94,84 +147,6 @@ const products = [
     description: 'Suéter half-zip Ralph Lauren em cinza chumbo. Gola alta com fecho e detalhe bicolor. Logo Polo bordado no peito. Algodão de alta gramatura. Perfeito para o inverno.',
     badge: null,
     image: 'images/produtos/p10.webp',
-    category: 'moletom'
-  },
-  {
-    id: 8,
-    brand: 'Vilebrequin',
-    name: 'Moorea Tartaruga Navy',
-    price: 'R$ 500',
-    priceNum: 500,
-    sizes: ['M'],
-    condition: 'Seminovo — Sem marcas de uso',
-    description: 'Short de banho Vilebrequin Moorea em navy com estampa tartaruga coral. Tecido microfiber. Marca francesa de beachwear de luxo. Peça icônica e colecionável.',
-    badge: null,
-    image: 'images/produtos/p09.webp',
-    category: 'shorts'
-  },
-  {
-    id: 10,
-    brand: 'Ralph Lauren',
-    name: 'Oxford Shirt Listrada',
-    price: 'R$ 450',
-    priceNum: 450,
-    sizes: ['P'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'Camisa Oxford Ralph Lauren, azul listrado clássico. Colarinho button-down, botões dourados. Logo Polo pony multicolor bordado. Tecido 100% algodão Oxford.',
-    badge: null,
-    image: 'images/produtos/p07.webp',
-    category: 'camisa'
-  },
-  {
-    id: 11,
-    brand: 'Sundek',
-    name: 'Classic Swim Short Preto',
-    price: 'R$ 350',
-    priceNum: 350,
-    sizes: ['M'],
-    condition: 'Seminovo — Ótimo estado',
-    description: 'Short de banho Sundek clássico preto. Costuras em branco. Cordão interno. Logo Sundek aplicado. Modelo clean e versátil da marca italiana de beachwear.',
-    badge: 'Vendido',
-    image: 'images/produtos/p06b.png',
-    category: 'shorts'
-  },
-  {
-    id: 12,
-    brand: 'Ralph Lauren',
-    name: 'Polo Flag Sweater Navy',
-    price: 'R$ 1.350',
-    priceNum: 1350,
-    sizes: ['G'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'Suéter Ralph Lauren com patch da bandeira americana em alto relevo. Letras "RL" bordadas. Tecido canelado de malha grossa. Peça icônica do estilo preppy americano.',
-    badge: null,
-    image: 'images/produtos/p02.webp',
-    category: 'moletom'
-  },
-  {
-    id: 13,
-    brand: 'Ralph Lauren',
-    name: 'Polo Bear Crewneck Navy Denim',
-    price: 'R$ 1.000',
-    priceNum: 1000,
-    sizes: ['G'],
-    condition: 'Como novo — Perfeito estado',
-    description: 'Moletom crewneck Ralph Lauren Polo Bear navy. Estampa do urso com jaqueta jeans. Tecido pesado premium. Peça colecionável da linha Polo Bear by Ralph Lauren.',
-    badge: null,
-    image: 'images/produtos/p05.webp',
-    category: 'moletom'
-  },
-  {
-    id: 14,
-    brand: 'Ralph Lauren',
-    name: 'Polo Bear Crewneck Navy Horse',
-    price: 'R$ 800',
-    priceNum: 800,
-    sizes: ['M'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'Moletom crewneck Ralph Lauren Polo Bear navy. Estampa do urso jogador de polo a cavalo. Gráfico colorido exclusivo de coleção. Autenticado pela Bergshed.',
-    badge: null,
-    image: 'images/produtos/p04.webp',
     category: 'moletom'
   },
   {
@@ -188,30 +163,17 @@ const products = [
     category: 'moletom'
   },
   {
-    id: 17,
+    id: 10,
     brand: 'Ralph Lauren',
-    name: 'Cable Knit Crewneck Off-White',
-    price: 'R$ 1.100',
-    priceNum: 1100,
-    sizes: ['M'],
-    condition: 'Novo com tags',
-    description: 'Suéter Ralph Lauren em tricô trançado (cable knit), cor off-white/creme. Logo Polo pony bordado no peito. Tags originais. Gola careca clássica. Peça atemporal do estilo preppy.',
-    badge: 'Novo',
-    image: 'images/produtos/p17.webp',
-    category: 'moletom'
-  },
-  {
-    id: 19,
-    brand: 'Ralph Lauren',
-    name: 'Cable Knit Crewneck Navy',
-    price: 'R$ 900',
-    priceNum: 900,
+    name: 'Oxford Shirt Listrada',
+    price: 'R$ 450',
+    priceNum: 450,
     sizes: ['P'],
     condition: 'Seminovo — Excelente estado',
-    description: 'Suéter Ralph Lauren em tricô trançado (cable knit), cor navy. Logo Polo pony bordado em vermelho no peito. Gola careca clássica. Peça atemporal do estilo preppy.',
+    description: 'Camisa Oxford Ralph Lauren, azul listrado clássico. Colarinho button-down, botões dourados. Logo Polo pony multicolor bordado. Tecido 100% algodão Oxford.',
     badge: null,
-    image: 'images/produtos/p19.webp',
-    category: 'moletom'
+    image: 'images/produtos/p07.webp',
+    category: 'camisa'
   },
   {
     id: 20,
@@ -226,6 +188,7 @@ const products = [
     image: 'images/produtos/p17.png',
     category: 'camiseta'
   },
+  // ── Vilebrequin ──────────────────────────────────────────────────
   {
     id: 21,
     brand: 'Vilebrequin',
@@ -253,18 +216,113 @@ const products = [
     category: 'shorts'
   },
   {
-    id: 23,
-    brand: 'Off-White™',
-    name: 'Crewneck Caravaggio Arrows',
-    price: 'R$ 1.300',
-    priceNum: 1300,
-    sizes: ['P'],
+    id: 30,
+    brand: 'Vilebrequin',
+    name: 'Moorea Starfish Navy',
+    price: 'R$ 700',
+    priceNum: 700,
+    sizes: ['XL'],
     condition: 'Seminovo — Excelente estado',
-    description: 'Moletom crewneck Off-White™ preto. Patch de artwork no peito e estampa Caravaggio com setas icônicas nas costas. Algodão pesado. Peça de alto valor de revenda.',
-    badge: 'Premium',
-    images: ['images/produtos/p19.png', 'images/produtos/p18.png'],
-    category: 'moletom'
+    description: 'Short de banho Vilebrequin Moorea azul marinho com estampa de estrelas do mar em verde menta. Marca francesa de beachwear de luxo. Icônico.',
+    badge: null,
+    image: 'images/produtos/p27.png',
+    category: 'shorts'
   },
+  {
+    id: 8,
+    brand: 'Vilebrequin',
+    name: 'Moorea Tartaruga Navy',
+    price: 'R$ 500',
+    priceNum: 500,
+    sizes: ['M'],
+    condition: 'Seminovo — Sem marcas de uso',
+    description: 'Short de banho Vilebrequin Moorea em navy com estampa tartaruga coral. Tecido microfiber. Marca francesa de beachwear de luxo. Peça icônica e colecionável.',
+    badge: null,
+    image: 'images/produtos/p09.webp',
+    category: 'shorts'
+  },
+  // ── AllSaints ────────────────────────────────────────────────────
+  {
+    id: 27,
+    brand: 'AllSaints',
+    name: 'Graphic Drip Branca',
+    price: 'R$ 600',
+    priceNum: 600,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Camiseta AllSaints branca com gráfico exclusivo Drip — logo derretido no peito e estampa grande nas costas. Algodão premium. Peça com identidade forte.',
+    badge: null,
+    images: ['images/produtos/p24.png', 'images/produtos/p24b.png'],
+    category: 'camiseta'
+  },
+  {
+    id: 29,
+    brand: 'AllSaints',
+    name: 'Underground Tokyo London',
+    price: 'R$ 600',
+    priceNum: 600,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Camiseta AllSaints off-white da coleção Underground. Texto japonês e "LONDON" nas costas. Corte oversized. Minimalista com referência urbana.',
+    badge: null,
+    images: ['images/produtos/p26.png', 'images/produtos/p26b.png'],
+    category: 'camiseta'
+  },
+  {
+    id: 4,
+    brand: 'AllSaints',
+    name: 'Tokyo Underground Tee',
+    price: 'R$ 500',
+    priceNum: 500,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'T-shirt AllSaints Tokyo Underground, preta. Logo frontal discreto e estampa "ALLSAINTS トウキョウ LONDON" nas costas. 100% algodão premium. Clássico da marca britânica.',
+    badge: null,
+    image: 'images/produtos/p14.webp',
+    category: 'camiseta'
+  },
+  {
+    id: 28,
+    brand: 'AllSaints',
+    name: 'Brace Logo Bege',
+    price: 'R$ 500',
+    priceNum: 500,
+    sizes: ['M'],
+    condition: 'Seminovo — Excelente estado',
+    description: 'Camiseta AllSaints em bege terroso com logo tonal no peito. Algodão de alta gramatura. Corte relaxado. Versátil e sofisticada.',
+    badge: null,
+    image: 'images/produtos/p25.png',
+    category: 'camiseta'
+  },
+  // ── Sundek ───────────────────────────────────────────────────────
+  {
+    id: 6,
+    brand: 'Sundek',
+    name: 'Classic Swim Short Bege',
+    price: 'R$ 350',
+    priceNum: 350,
+    sizes: ['M'],
+    condition: 'Novo com tags',
+    description: 'Short de banho Sundek clássico em areia/bege. Listras coloridas neon verde e azul nas laterais. Logo bordado. Tags originais. Marca italiana de beachwear de luxo.',
+    badge: 'Novo',
+    image: 'images/produtos/p12.webp',
+    images: ['images/produtos/p12.webp', 'images/produtos/p11.webp'],
+    category: 'shorts'
+  },
+  {
+    id: 11,
+    brand: 'Sundek',
+    name: 'Classic Swim Short Preto',
+    price: 'R$ 350',
+    priceNum: 350,
+    sizes: ['M'],
+    condition: 'Seminovo — Ótimo estado',
+    description: 'Short de banho Sundek clássico preto. Costuras em branco. Cordão interno. Logo Sundek aplicado. Modelo clean e versátil da marca italiana de beachwear.',
+    badge: 'Vendido',
+    image: 'images/produtos/p06b.png',
+    category: 'shorts'
+  },
+  // ── Birkenstock ──────────────────────────────────────────────────
   {
     id: 24,
     brand: 'Birkenstock',
@@ -303,58 +361,6 @@ const products = [
     badge: null,
     image: 'images/produtos/p23.png',
     category: 'sandalia'
-  },
-  {
-    id: 27,
-    brand: 'AllSaints',
-    name: 'Graphic Drip Branca',
-    price: 'R$ 600',
-    priceNum: 600,
-    sizes: ['M'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'Camiseta AllSaints branca com gráfico exclusivo Drip — logo derretido no peito e estampa grande nas costas. Algodão premium. Peça com identidade forte.',
-    badge: null,
-    images: ['images/produtos/p24.png', 'images/produtos/p24b.png'],
-    category: 'camiseta'
-  },
-  {
-    id: 28,
-    brand: 'AllSaints',
-    name: 'Brace Logo Bege',
-    price: 'R$ 500',
-    priceNum: 500,
-    sizes: ['M'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'Camiseta AllSaints em bege terroso com logo tonal no peito. Algodão de alta gramatura. Corte relaxado. Versátil e sofisticada.',
-    badge: null,
-    image: 'images/produtos/p25.png',
-    category: 'camiseta'
-  },
-  {
-    id: 29,
-    brand: 'AllSaints',
-    name: 'Underground Tokyo London',
-    price: 'R$ 600',
-    priceNum: 600,
-    sizes: ['M'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'Camiseta AllSaints off-white da coleção Underground. Texto japonês e "LONDON" nas costas. Corte oversized. Minimalista com referência urbana.',
-    badge: null,
-    images: ['images/produtos/p26.png', 'images/produtos/p26b.png'],
-    category: 'camiseta'
-  },
-  {
-    id: 30,
-    brand: 'Vilebrequin',
-    name: 'Moorea Starfish Navy',
-    price: 'R$ 700',
-    priceNum: 700,
-    sizes: ['XL'],
-    condition: 'Seminovo — Excelente estado',
-    description: 'Short de banho Vilebrequin Moorea azul marinho com estampa de estrelas do mar em verde menta. Marca francesa de beachwear de luxo. Icônico.',
-    badge: null,
-    image: 'images/produtos/p27.png',
-    category: 'shorts'
   }
 ];
 
